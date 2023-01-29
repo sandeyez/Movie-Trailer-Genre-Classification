@@ -14,7 +14,7 @@ import shutil
 import random
 from google.colab import drive
 
-# mount Google Drive
+# Mount Google Drive
 drive.mount('/content/drive/',force_remount = True)
 PATH = "/content/drive/MyDrive/trailer_classification"
 DATA_DIR = os.path.join(PATH, "data/inputs_new")

@@ -473,10 +473,16 @@ def download_trailers(
     logger.info("Done")
 
 
-if __name__ == "__main__":
-    logger = logging.getLogger(__name__)
-    indices = [i for i in range(161)]
-    start = time.time()
-    download_trailers(indices, log_level=logging.DEBUG)
-    end = time.time()
-    logger.info("Done! Took %s seconds", end - start)
+# Piece of code that can find trailers by name
+metadata = load_metadata(path="data/metadata.json")
+find = "star wars"
+finds = []
+for idx, trailer_data in metadata.items():
+    if find in trailer_data['imdb']['title'].lower():
+      print(trailer_data)
+      print(idx)
+      finds.append((trailer_data, idx))
+print(finds)
+
+# Download the trailers
+download_trailers([8001])
